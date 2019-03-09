@@ -1,9 +1,9 @@
-﻿static class DateChecker
+﻿static class Calendar
 {
-    public static bool Check(int year, int month, int day)
+    public static bool VerifyDate(int year, int month, int day)
     {
         return
-            year > 2099 || year < 2001 ? false :
+            year < 2001 || year > 2099 ? false :
             month < 1 || month > 12 ? false :
             day < 1 || day > DaysInMonth(year, month) ? false : true;
     }
