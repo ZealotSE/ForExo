@@ -6,7 +6,7 @@ namespace TSzApp
     {
         static void Main(string[] args)
         {
-            FizzBuzz.WriteToConsole();
+            FizzBuzz.WriteToConsole();			
             Console.ReadKey();
         }
     }
