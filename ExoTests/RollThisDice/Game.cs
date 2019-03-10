@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RollThisDice
 {
@@ -29,7 +25,7 @@ namespace RollThisDice
         }
 
         public void Start()
-        {   //rounds loop
+        {   
             for (int actualRound = 0; actualRound < maxRounds; ++actualRound)
             {
                 foreach (Player k in players)
@@ -44,20 +40,18 @@ namespace RollThisDice
         {
             int turnNumber = 1;
             bool nextPlayersTurn = false;
-            //turns loop
             while (!nextPlayersTurn)
             {
-                int pointsFromThrow = 0;
+                int pointsFromThrows = 0;
                 foreach (Dice dice in dices)
                 {
-                    pointsFromThrow += player.RollDice(dice);
-                }
-                gameHistory += ($"{player.Name} rolled {pointsFromThrow} in {turnNumber} turn\n");
-
-                nextPlayersTurn = CheckGameRules(player, pointsFromThrow, turnNumber);
+                    pointsFromThrows += player.RollDice(dice);
+                }                
+                nextPlayersTurn = CheckGameRules(player, pointsFromThrows, turnNumber);
                 ++turnNumber;
+                gameHistory += ($"{player.Name} rolled {pointsFromThrows} in {turnNumber} turn\n");
             }
-            gameHistory += ($"{player.Name} got {player.Points} points after this round, next players turn\n\n");
+            gameHistory += ($"{player.Name} got {player.Points} points after round, next players turn\n\n");
         }
 
         private bool CheckGameRules(Player player, int pointsInTurn, int turnNumber)
@@ -79,7 +73,7 @@ namespace RollThisDice
                 return true;
             else
                 return false;
-        } //true = next player turn
+        } 
 
         private void Summarize()
         {

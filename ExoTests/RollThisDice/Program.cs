@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RollThisDice
 {
@@ -13,9 +9,9 @@ namespace RollThisDice
             Game newGame = new Game();
             newGame.Start();
 
-            Console.WriteLine("1 to write game history");
-            int key = Convert.ToInt32(Console.ReadLine());
-            if (key == 1)
+            Console.WriteLine("Type hist to write game history");
+            var type = Console.ReadLine();
+            if (type.Equals("hist"))
             {
                 newGame.WriteHistory();
                 Console.ReadKey();

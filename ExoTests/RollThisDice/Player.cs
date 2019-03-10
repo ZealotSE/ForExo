@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace RollThisDice
+﻿namespace RollThisDice
 {
     class Player
     {
@@ -11,11 +9,6 @@ namespace RollThisDice
         {
             Name = name;
             Points = 0;
-        }
-
-        public void AddPoints(int points)
-        {
-            Points += points;
         }
 
         public int RollDice(Dice dice)
