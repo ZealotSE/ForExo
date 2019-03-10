@@ -10,8 +10,7 @@ namespace RollThisDice
         public Player(string name)
         {
             Name = name;
-            Points = 0;
-            Console.WriteLine("Created player");
+            Points = 0;            
         }
 
         public void AddPoints(int points)
