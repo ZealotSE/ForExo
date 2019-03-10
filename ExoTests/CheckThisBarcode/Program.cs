@@ -10,7 +10,8 @@ namespace CheckThisBarcode
     {
         static void Main(string[] args)
         {
-            Barcode.Check("01234567890123", 2);
+            
+            Barcode.Check("96385075", 1);
             Console.ReadKey();
         }
     }
