@@ -15,12 +15,12 @@ namespace RollThisDice
         public Dice()
         {
             PossibleValues = new int[] { 1, 2, 3, 4, 5, 6 };
-            Value = rand.Next(1, 7);            
-        }       
+            Value = rand.Next(1, 7);
+        }
 
         public void Roll()
-        {            
-            Value = PossibleValues[rand.Next(0, 6)];            
+        {
+            Value = PossibleValues[rand.Next(0, 6)];
         }
     }
 }

@@ -10,6 +10,16 @@ namespace RollThisDice
     {
         static void Main(string[] args)
         {
+            Game newGame = new Game();
+            newGame.Start();
+
+            Console.WriteLine("1 to write game history");
+            int key = Convert.ToInt32(Console.ReadLine());
+            if (key == 1)
+            {
+                newGame.WriteHistory();
+                Console.ReadKey();
+            }
         }
     }
 }

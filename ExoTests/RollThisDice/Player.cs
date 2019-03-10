@@ -10,7 +10,7 @@ namespace RollThisDice
         public Player(string name)
         {
             Name = name;
-            Points = 0;            
+            Points = 0;
         }
 
         public void AddPoints(int points)
