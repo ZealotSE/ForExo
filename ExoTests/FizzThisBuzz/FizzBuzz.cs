@@ -2,9 +2,11 @@
 
 static class FizzBuzz
 {
+    private static int range = 100;
+
     public static void WriteToConsole()
     {
-        for (int i = 1; i <= 100; ++i)
+        for (int i = 1; i <= range; ++i)
         {
             Console.WriteLine(CheckMultiple(i));
         }

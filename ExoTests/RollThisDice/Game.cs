@@ -6,18 +6,13 @@ namespace RollThisDice
     {
         private bool gameIsFinished;
         private string gameHistory;
-        private int maxRounds;
-
+        private int maxRounds = 5;
         public Player[] players;
         public Dice[] dices;
 
-        public Game()
-        {
-            maxRounds = 5;
-        }
-
         public void InitNewGame()
         {
+            gameHistory = "";
             gameIsFinished = false;
             players = new Player[]
             {
@@ -75,11 +70,11 @@ namespace RollThisDice
                 player.Points += 33;
                 return true;
             }
-            if (pointsInTurn == 5)          // scores 5 in other than first round - end round without any penalty poinst
+            if (pointsInTurn == 5)                              // scores 5 in other than first round - end round without any penalty poinst
                 return true;
             player.Points += pointsInTurn / turnNumber;         // get any other score - penalty points equal: scored_points/turn_number
 
-            if (turnNumber == 10)           // after 10 turns, turn to next player
+            if (turnNumber == 10)                               // after 10 turns, turn to next player
                 return true;
             else
                 return false;
@@ -93,10 +88,10 @@ namespace RollThisDice
             Player winner = players[0].Points < players[1].Points ? (players[0]) : (players[1]);
             Player looser = players[0].Points > players[1].Points ? (players[0]) : (players[1]);
 
-            Console.WriteLine("\n\n                          The game is over!\n\n");
+            Console.WriteLine("\n\n                          The game is over!\n");
             Console.WriteLine($"      Player {winner.Name} is the winner with the score of {winner.Points} points.");
-            Console.WriteLine($"      Player {looser.Name} won second place with the score of {looser.Points} points.\n");
-            Console.WriteLine("\n\n Enter \"hist\" to see moves history or anything else to exit.");
+            Console.WriteLine($"      Player {looser.Name} won second place with the score of {looser.Points} points.");
+            Console.WriteLine("\n\nEnter \"hist\" to see moves history or anything else to exit.");
 
             if (Console.ReadLine().Equals("hist"))
             {

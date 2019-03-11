@@ -7,43 +7,68 @@ namespace CheckThisBarcode
     {
         public static string Check(string code, int type)
         {
-            StringBuilder newCode = new StringBuilder(code);
-            int targetLength;
+            StringBuilder temporaryCode = new StringBuilder(code);
 
-            //check second argument
+            CheckSecondArgument(type, out int targetLength);
+            CheckDigits(temporaryCode);
+            CheckFirstZero(ref temporaryCode, targetLength);
+            CheckAddon(ref temporaryCode, targetLength);
+            //CheckChecksum(temporaryCode);    Turned off for tests     
+
+            return temporaryCode.ToString();
+        }
+
+        //check the correctness of second argument
+        private static void CheckSecondArgument(int type, out int length)
+        {
             if (type != 1 && type != 2)
             {
                 throw new ArgumentException("Invalid second argument. Values '1' or '2' permitted only.");
             }
-            targetLength = type == 1 ? 8 : 13;
-            //check if string contains any other chars than digits
-            if (!IsDigitsOnly(newCode.ToString()))
+            else
+                length = type == 1 ? 8 : 13;
+        }
+
+        //checks if input string contains any other chars than digits
+        private static void CheckDigits(StringBuilder code)
+        {
+            if (!IsDigitsOnly(code.ToString()))
             {
                 throw new ArgumentException("Invalid first argument. Digits permitted only.");
             }
-            //check if barcode is shortened by first 0 - add it if so
-            if (newCode.Length != targetLength)
+        }
+
+        //checks if barcode is shortened by 0 and adds it at beggining if so
+        private static void CheckFirstZero(ref StringBuilder code, int length)
+        {
+            if (code.Length != length)
             {
-                if (newCode[0] == '0')
-                    newCode.Insert(0, '0');
+                if (code[0] == '0')
+                    code.Insert(0, '0');
             }
-            //check if barcode has valid allowing possible add-on
-            if (newCode.Length != targetLength && newCode.Length != targetLength + 2)
+        }
+
+        //checks if barcode contains add-on and removes it if so 
+        private static void CheckAddon(ref StringBuilder code, int length)
+        {
+            if (code.Length != length && code.Length != length + 2)
             {
                 throw new ArgumentException("Invalid barcode length.");
             }
-            //remove add-on if code contains it
-            else if (newCode.Length == targetLength + 2)
+            else if (code.Length == length + 2)
             {
-                newCode.Remove(targetLength, 2);
+                code.Remove(length, 2);
             }
-            //calculate correct checksum and compare with last code digit
-            if (CalculateChecksum(newCode.ToString()) != Int32.Parse(newCode[newCode.Length - 1].ToString()))
+        }
+
+        //calculate correct checksum and compare it with one from input barcode
+        private static void CheckChecksum(StringBuilder code)
+        {
+            if (CalculateChecksum(code.ToString())
+                != Int32.Parse(code[code.Length - 1].ToString()))
             {
-                throw new ArgumentException("Invalid barcode checksum at last code possition.");
+                throw new ArgumentException("Invalid checksum in given barcode.");
             }
-            //all conditions met, return correct barcode
-            return newCode.ToString();
         }
 
         private static bool IsDigitsOnly(string code)
@@ -60,16 +85,16 @@ namespace CheckThisBarcode
         {
             int calculatedResult = 0;
             int tempDigit;
-            for (int i = 0; i < code.Length-1; ++i)
+
+            for (int i = 0; i < code.Length - 1; ++i)
             {
                 tempDigit = Int32.Parse(code[i].ToString());
-                //Console.WriteLine(tempDigit);
-                if (i + 1 % 2 == 0) 
-                    calculatedResult += tempDigit;      //even
-                else                
-                    calculatedResult += tempDigit * 3;  //odd
+                if (i + 1 % 2 == 0)
+                    calculatedResult += tempDigit;
+                else
+                    calculatedResult += (tempDigit * 3);
             }
-            //Console.WriteLine(calculatedResult % 10);
+            //Console.WriteLine($"Calculated checksum: {calculatedResult % 10}");
             return calculatedResult % 10;
         }
     }

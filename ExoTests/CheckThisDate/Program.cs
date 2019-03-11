@@ -5,7 +5,7 @@ namespace TSzApp
     class Program
     {
         static void Main(string[] args)
-        {                                                         //Expected values:
+        {                                                         //Expected:
             Console.WriteLine(Calendar.VerifyDate(2000, 1, 1));   //False
             Console.WriteLine(Calendar.VerifyDate(2001, 1, 1));   //True
             Console.WriteLine(Calendar.VerifyDate(2100, 1, 1));   //False
