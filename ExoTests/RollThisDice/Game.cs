@@ -35,6 +35,7 @@ namespace RollThisDice
             }
             else
             {
+                Console.WriteLine("                          Started new game..");
                 for (int actualRound = 0; actualRound < maxRounds; ++actualRound)
                 {
                     foreach (Player k in players)
@@ -57,10 +58,10 @@ namespace RollThisDice
                 Player winner = players[0].Points < players[1].Points ? (players[0]) : (players[1]);
                 Player looser = players[0].Points > players[1].Points ? (players[0]) : (players[1]);
 
-                Console.WriteLine("\n\n                          The game is over!\n");
-                Console.WriteLine($"      Player {winner.Name} is the winner with the score of {winner.Points} points.");
-                Console.WriteLine($"      Player {looser.Name} won second place with the score of {looser.Points} points.");
-                Console.WriteLine("\n\n\n\n\"hist\" to see moves history\n\"exit\" to exit \nanything else to start new game.\n");
+                Console.WriteLine("\n                       ..and the game is over!\n");
+                Console.WriteLine($"     Player {winner.Name} is the winner with the score of {winner.Points} points.");
+                Console.WriteLine($"     Player {looser.Name} won second place with the score of {looser.Points} points.");
+                Console.WriteLine("\n\n\n\n- \"hist\" to show history\n- \"exit\" to exit game\n- anything else to start new game\n");
 
                 var what = Console.ReadLine();
                 if (what.Equals("hist"))
@@ -68,6 +69,8 @@ namespace RollThisDice
                     Console.Clear();
                     WriteHistory();
                     Console.ReadKey();
+                    Console.Clear();
+                    SummarizeResult();
                 }
                 if (what.Equals("exit"))
                 {
@@ -117,7 +120,7 @@ namespace RollThisDice
                 return true;
             else
                 return false;
-        }        
+        }
 
         private void WriteHistory()
         {
