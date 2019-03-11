@@ -5,9 +5,13 @@
         static void Main(string[] args)
         {
             Game newGame = new Game();
-            newGame.InitNewGame();
-            newGame.Start();
-            newGame.SummarizeResult();
+
+            while (true)
+            {
+                newGame.InitNewGame();
+                newGame.Start();
+                newGame.SummarizeResult();
+            }
         }
     }
 }

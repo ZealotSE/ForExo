@@ -61,7 +61,7 @@ namespace CheckThisBarcode
             }
         }
 
-        //calculate correct checksum and compare it with one from input barcode
+        //compare calculated checksum with one from input barcode
         private static void CheckChecksum(StringBuilder code)
         {
             if (CalculateChecksum(code.ToString())
@@ -71,6 +71,7 @@ namespace CheckThisBarcode
             }
         }
 
+        //checks if input string contains non-digits
         private static bool IsDigitsOnly(string code)
         {
             foreach (char character in code)
@@ -81,6 +82,7 @@ namespace CheckThisBarcode
             return true;
         }
 
+        //calculatin checksum for input barcode
         private static int CalculateChecksum(string code)
         {
             int calculatedResult = 0;

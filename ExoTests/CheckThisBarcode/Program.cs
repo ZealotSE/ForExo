@@ -4,7 +4,7 @@ namespace CheckThisBarcode
 {
     class Program
     {
-        static void Main(string[] args)                            
+        static void Main(string[] args)
         {                                                           //Expected:
             Console.WriteLine(Barcode.Check("96385074", 1));        //96385074
             Console.WriteLine(Barcode.Check("0385074", 1));         //00385074
