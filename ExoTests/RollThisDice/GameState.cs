@@ -9,25 +9,42 @@ namespace RollThisDice
 {
     class GameState
     {
-        public bool isGameInProgress { get; private set; }
+        public bool IsGameOn { get; private set; }
         public int CurrentRound { get; private set; }
         public int CurrentTurn { get; private set; }
         public int CurrentPlayerIndex { get; private set; }
         
-        public void Reset()
+        public GameState()
         {
-            isGameInProgress = false;
-            CurrentRound = 1;
-            CurrentTurn = 1;
-            CurrentPlayerIndex = 0;
+            IsGameOn = false;
+            SetInitialValues();
         }
 
-        public void Update(bool running,int round, int turn, int player)
+        public void SetInitialValues()
         {
-            isGameInProgress = running;
+            if (!IsGameOn)
+            {
+                CurrentRound = 1;
+                CurrentTurn = 1;
+                CurrentPlayerIndex = 0;
+            }
+        }
+
+        public void Update(int round, int turn, int player)
+        {
             CurrentRound = round;
             CurrentTurn = turn;
             CurrentPlayerIndex = player;
+        }
+
+        public void GameStops()
+        {
+            IsGameOn = false;
+        }
+
+        public void GameStarts()
+        {
+            IsGameOn = true;
         }
     }
 }
