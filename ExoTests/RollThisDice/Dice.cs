@@ -6,17 +6,31 @@ namespace RollThisDice
     {
         private static Random rand = new Random();
         private int[] PossibleValues;
-        public int Value { get; private set; }
 
-        public Dice()
+        public Dice(string type="k6")
         {
-            PossibleValues = new int[] { 1, 2, 3, 4, 5, 6 };
-            Value = rand.Next(1, 7);
+            PossibleValues = DiceType(type);
         }
 
-        public void Roll()
+        private int[] DiceType(string type)
         {
-            Value = PossibleValues[rand.Next(0, 6)];
+            switch (type)
+            {
+                case "k4":
+                    return new int[] { 1, 2, 3, 4 };
+                case "k8":
+                    return new int[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+                case "k12":
+                    return new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
+                case "k6":
+                default:
+                    return new int[] { 1, 2, 3, 4, 5, 6 };
+            }
+        }
+
+        public int Roll()
+        {
+            return PossibleValues[rand.Next(0, PossibleValues.Length)];
         }
     }
 }
