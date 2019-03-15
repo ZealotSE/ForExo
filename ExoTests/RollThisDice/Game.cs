@@ -1,32 +1,34 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace RollThisDice
 {
     class Game
     {
-        private bool gameIsFinished;
-        private string gameHistory;
-        private int maxRounds = 5;
-        public Player[] players;
-        public Dice[] dices;
+        GameController Controller;
+        GameConsole Console;
+        GameSettings Settings;
+        GameState State;
+        
 
-        public void InitNewGame()
+        public Game()
         {
-            gameIsFinished = false;
-            gameHistory = "";
-            players = new Player[]
-            {
-                new Player("Pierwszy"),
-                new Player("Drugi")
-            };
-            dices = new Dice[]
-            {
-                new Dice(),
-                new Dice()
-            };
-            Console.Clear();
+            Settings = new GameSettings();
+            State = new GameState();
+
+            Controller = new GameController(Settings, State);
+            Console = new GameConsole(Settings, State);            
         }
 
+        public void Run()
+        {
+            Controller.SetConsole(Console);
+            Console.SetController(Controller);
+            Console.ShowMainMenu();
+        }
+              
+
+        /*
         public void Start()
         {
             if (gameIsFinished)
@@ -128,5 +130,7 @@ namespace RollThisDice
             Console.WriteLine(gameHistory);
             Console.WriteLine("The game is over here.. press any button.");
         }
+        */
     }
 }
+
