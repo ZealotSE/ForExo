@@ -16,18 +16,13 @@ namespace RollThisDice
 
         public Settings()
         {
-            SetDefaultSettings();
-        }
-
-        private void SetDefaultSettings()
-        {
             RoundsInMatch = 5;
             TurnsInRound = 10;
             PlayersCount = 2;
             DicesCount = 2;
             WriteInConsole = false;
         }
-
+        
         public void SetRounds(int count)
         {
             if (count >= 4 || count <= 8)
@@ -52,7 +47,7 @@ namespace RollThisDice
                 DicesCount = count;
         }
 
-        public void Console(bool draw)
+        public void DrawResult(bool draw)
         {
             WriteInConsole = draw;
         }
