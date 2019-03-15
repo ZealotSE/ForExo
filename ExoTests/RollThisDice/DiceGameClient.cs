@@ -1,32 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
+using RollThisDice.Interfaces;
 
 namespace RollThisDice
 {
-    class Game
-    {
-        GameController Controller;
-        GameConsole Console;
-        GameSettings Settings;
-        GameState State;
-        
-
-        public Game()
-        {
-            Settings = new GameSettings();
-            State = new GameState();
-
-            Controller = new GameController(Settings, State);
-            Console = new GameConsole(Settings, State);            
+    class DiceGameClient : Abstract.GameClient, IModuleBinder
+    {      
+        public DiceGameClient()
+        {         
+            State = new DiceState();
+            Controller = new DiceController();
+            Console= new DiceConsole();            
         }
 
-        public void Run()
+        public override void Run()
         {
-            Controller.SetConsole(Console);
-            Console.SetController(Controller);
-            Console.ShowMainMenu();
+            InitFirst();
         }
-              
+
+        private void InitFirst()
+        {
+            BindControllerCalls(this.Controller.Informator, this.Console.performer, this.State.Validator);
+            Controller.RUN();
+        }
+
+        public void BindControllerCalls(IBroadcast ActionProclaimer, IActionPerformer actionPerformer, IVariableData DataValidator)
+        {
+            ActionProclaimer.OnActionPerformed += actionPerformer.SelectAction;
+            ActionProclaimer.OnStateChanged += DataValidator.VerifyInputData;
+        }
 
         /*
         public void Start()

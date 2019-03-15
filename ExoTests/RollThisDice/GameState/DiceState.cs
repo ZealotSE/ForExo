@@ -7,22 +7,23 @@ using System.Threading.Tasks;
 
 namespace RollThisDice
 {
-    class GameState
+    class DiceState : Abstract.GameState
     {
-        public bool IsGameOn { get; private set; }
+        
+        GameSettings Settings;
+        public bool IsGameRunning { get; private set; }
         public int CurrentRound { get; private set; }
         public int CurrentTurn { get; private set; }
         public int CurrentPlayerIndex { get; private set; }
         
-        public GameState()
+        public DiceState()
         {
-            IsGameOn = false;
-            SetInitialValues();
+            Validator = new ChangesValidator();
         }
 
         public void SetInitialValues()
         {
-            if (!IsGameOn)
+            if (!IsGameRunning)
             {
                 CurrentRound = 1;
                 CurrentTurn = 1;
@@ -39,12 +40,12 @@ namespace RollThisDice
 
         public void GameStops()
         {
-            IsGameOn = false;
+            IsGameRunning = false;
         }
 
         public void GameStarts()
         {
-            IsGameOn = true;
+            IsGameRunning = true;
         }
     }
 }

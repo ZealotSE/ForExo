@@ -6,9 +6,8 @@ namespace RollThisDice
     {
         static void Main(string[] args)
         {
-            Game NowaGra = new Game();
-            NowaGra.Run();
-
+            DiceGameClient NewGame = new DiceGameClient();
+            NewGame.Run();
             Console.ReadKey();
         }
     }
