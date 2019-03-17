@@ -1,15 +1,16 @@
 ﻿using System;
+using RollThisDice.Abstract;
 
 namespace RollThisDice
 {
     class DiceConsole : GameConsole
     {
-        public ConsoleMessenger Messenger { get;  set; }
-
+        public override IOneSidedContact Messenger { get; }
+        
         public DiceConsole()
         {
             Messenger = new ConsoleMessenger();            
-        }
+        }        
     }    
 }
 

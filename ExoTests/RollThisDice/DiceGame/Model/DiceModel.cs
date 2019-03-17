@@ -1,14 +1,14 @@
-﻿using System;
+﻿using RollThisDice.Abstract;
 
 namespace RollThisDice
 {
-    class DiceGameState : GameState
+    class DiceModel : GameModel
     {
-        public StateMessenger Messenger { get;  set; }
-
-        public DiceGameState()
+        public override IOneSidedContact Messenger { get; }
+        
+        public DiceModel()
         {
-            Messenger = new StateMessenger();
+            Messenger = new ModelMessenger();
         }
     }
 }

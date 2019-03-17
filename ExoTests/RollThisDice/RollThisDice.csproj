@@ -42,27 +42,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Recipes\GameConsole.cs" />
-    <Compile Include="Recipes\GameClient.cs" />
-    <Compile Include="Recipes\GameController.cs" />
-    <Compile Include="Modules\Controller\GameLogic.cs" />
-    <Compile Include="Recipes\GameState.cs" />
-    <Compile Include="Modules\Console\ConsoleMessenger.cs" />
-    <Compile Include="Modules\Controller\ControllerMessenger.cs" />
-    <Compile Include="Recipes\IDuplexReciever.cs" />
-    <Compile Include="Recipes\IInvoker.cs" />
-    <Compile Include="Modules\State\StateMessenger.cs" />
-    <Compile Include="Recipes\IDuplexInvoker.cs" />
-    <Compile Include="Recipes\IModuleBinder.cs" />
-    <Compile Include="Modules\Console\DiceConsole.cs" />
-    <Compile Include="Modules\Controller\Dice.cs" />
-    <Compile Include="Modules\Controller\DiceController.cs" />
-    <Compile Include="Modules\State\DiceGameState.cs" />
-    <Compile Include="Modules\Controller\Player.cs" />
+    <Compile Include="DiceGame\ThresholdReachedEventArgs.cs" />
+    <Compile Include="DiceGame\Console\Views.cs" />
+    <Compile Include="Abstract\GameConsole.cs" />
+    <Compile Include="Abstract\GameClient.cs" />
+    <Compile Include="Abstract\GameController.cs" />
+    <Compile Include="DiceGame\Controller\GameLogic.cs" />
+    <Compile Include="Abstract\GameModel.cs" />
+    <Compile Include="DiceGame\Console\ConsoleMessenger.cs" />
+    <Compile Include="DiceGame\Controller\ControllerMessenger.cs" />
+    <Compile Include="Abstract\IOneSidedContact.cs" />
+    <Compile Include="DiceGame\Model\ModelMessenger.cs" />
+    <Compile Include="Abstract\ITwoSidedContact.cs" />
+    <Compile Include="DiceGame\Console\DiceConsole.cs" />
+    <Compile Include="DiceGame\Controller\Dice.cs" />
+    <Compile Include="DiceGame\Controller\DiceController.cs" />
+    <Compile Include="DiceGame\Model\DiceModel.cs" />
+    <Compile Include="DiceGame\Controller\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Modules\RollThisDice.cs" />
-    <Compile Include="Recipes\IReciever.cs" />
+    <Compile Include="DiceGame\DiceGameClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

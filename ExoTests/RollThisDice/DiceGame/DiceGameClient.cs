@@ -1,40 +1,37 @@
-﻿using RollThisDice;
-using System;
+﻿using RollThisDice.Abstract;
 
 namespace RollThisDice
 {
     class DiceGameClient : GameClient
     {
-        DiceController Controller;
-        DiceGameState State;
-        DiceConsole Console;
+        protected override GameController Controller { get; }
+        protected override GameModel Model { get;}
+        protected override GameConsole Console { get; }
 
         public DiceGameClient()
         {
             Controller = new DiceController();
-            State = new DiceGameState();
+            Model = new DiceModel();
             Console = new DiceConsole();
-
-            BindEvents(Controller.Messenger, Console.Messenger, State.Messenger);
-
-            State.Messenger.ContactController();
-            Controller.Messenger.ContactConsole();
-            Console.Messenger.ContactController();
-            Controller.Messenger.ContactState();
-            System.Console.ReadKey();
+            Bind(Model.Messenger, Controller.Messenger, Console.Messenger);
         }
 
         public override void Run()
         {
-            throw new System.NotImplementedException();
+            Controller.Messenger.SendMessageLeft("test1");
+            Controller.Messenger.SendMessageRight("test2");
+            Model.Messenger.SendMessage("test3");
+            Console.Messenger.SendMessage("test4");
+            System.Console.ReadKey();
         }
 
-        public override void BindEvents(ControllerMessenger Controller, ConsoleMessenger Console, StateMessenger State)
+        protected override void Bind(IOneSidedContact ModelMessenger, ITwoSidedContact ControllerMessenger, IOneSidedContact ConsoleMessenger)
         {
-            Controller.ConsoleEventInvoker += Console.ReceiveEvent;
-            Controller.StateEventInvoker += State.ReceiveEvent;
-            Console.EventInvoker += Controller.ReceiveConsoleEvent;
-            State.EventInvoker += Controller.ReceiveStateEvent;
+            ControllerMessenger.LeftMessageInvoker += ModelMessenger.ReceiveMessage;
+            ModelMessenger.MessageInvoker += ControllerMessenger.ReceiveMessageLeft;
+
+            ControllerMessenger.RightMessageInvoker += ConsoleMessenger.ReceiveMessage;
+            ConsoleMessenger.MessageInvoker += ControllerMessenger.ReceiveMessageRight;
         }
     }
 }
