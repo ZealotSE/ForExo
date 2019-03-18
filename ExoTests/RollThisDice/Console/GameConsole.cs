@@ -9,13 +9,13 @@ namespace RollThisDice
         public AvaibleWindows ActualWindow;         
         public override IOneSidedContact Messenger { get; }
         public Windows Window;
-        public UserAction User;
+        public Actions User;
         
         public GameConsole()
         {
             Messenger = new ConsoleMessenger(this);
             Window = new Windows();
-            User = new UserAction();
+            User = new Actions();
         }
 
         public void InterpretMessage(EventArgs e)
@@ -36,6 +36,8 @@ namespace RollThisDice
                     break;
                 case "SHOW_HISTORY":
                     ActualWindow = AvaibleWindows.History;
+                    break;
+                case "RELOAD":
                     break;
             }
 

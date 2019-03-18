@@ -25,9 +25,9 @@ namespace RollThisDice
                     Gameplay();
                     break;
             }
-            console.User.PressButton(e, console);
+            console.User.NextAction(e, console);
         }
-        
+
 
         public void MainMenu()
         {
@@ -35,31 +35,25 @@ namespace RollThisDice
             System.Console.WriteLine(
                 "\n     MAIN MENU\n\n" +
                 "   1  -> Main menu\n" +
-                "   2  -> Settings\n"  +
-                "   0  -> Exit game\n" +
-                "other -> Default\n");
+                "   2  -> Settings\n" +
+                "   3  -> History\n" +
+                "   0  -> Exit game\n");
         }
 
         public void Settings()
         {
             System.Console.Clear();
             System.Console.WriteLine(
-                "\n     SETTINGS\n\n"  +
-                "   1  -> Main menu\n" +
-                "   2  -> Settings\n"  +
-                "   0  -> Exit game\n" +
-                "other -> Default\n");
+                "\n     SETTINGS\n\n" +
+                "   0  -> Return\n");
         }
 
         public void History()
         {
             System.Console.Clear();
             System.Console.WriteLine(
-                "\n     DEFAULT  \n\n" +
-                "   1  -> Main menu\n" +
-                "   2  -> Settings\n"  +
-                "   0  -> Exit game\n" +
-                "other -> Default\n");
+                "\n     HISTORY  \n\n" +
+                "   0  -> Return\n");
         }
 
         public void Gameplay()
@@ -67,10 +61,7 @@ namespace RollThisDice
             System.Console.Clear();
             System.Console.WriteLine(
                 "\n     GAMEPLAY WINDOW  \n\n" +
-                "   1  -> Main menu\n" +
-                "   2  -> Settings\n" +
-                "   0  -> Exit game\n" +
-                "other -> Default\n");
+                "   0  -> Return\n");
         }
     }
 }

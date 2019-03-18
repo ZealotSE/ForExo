@@ -31,6 +31,12 @@ namespace RollThisDice
                 case "SHOW_SETTINGS":
                     Messenger.SendMessageRight(new EventArgs("SHOW_SETTINGS"));
                     break;
+                case "RELOAD":
+                    Messenger.SendMessageRight(new EventArgs("RELOAD"));
+                    break;
+                case "SHOW_HISTORY":
+                    Messenger.SendMessageRight(new EventArgs("SHOW_HISTORY"));
+                    break;
                 case "QUIT_GAME":
                     Client.Exit();
                     break;

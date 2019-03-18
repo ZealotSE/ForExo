@@ -43,7 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstractions\ClientRecipe.cs" />
-    <Compile Include="Console\UserAction.cs" />
+    <Compile Include="Console\Actions.cs" />
     <Compile Include="Model\Components.cs" />
     <Compile Include="Model\Settings.cs" />
     <Compile Include="Model\State.cs" />
