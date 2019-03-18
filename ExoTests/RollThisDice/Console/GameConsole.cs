@@ -2,11 +2,11 @@
 using RollThisDice.Abstract;
 
 namespace RollThisDice
-{
+{    
     class GameConsole : ConsoleRecipe
     {
-        enum AvaibleWindows { Mainmenu, Settings, Gameplay, Default }
-        AvaibleWindows ToDisplay;
+        enum AvaibleWindows { Mainmenu, Settings, Gameplay, Default };
+        AvaibleWindows ActualWindow;         
         public override IOneSidedContact Messenger { get; }
         private Windows Window;
         
@@ -21,16 +21,16 @@ namespace RollThisDice
             switch (arguments)
             {
                 case "MAINMENU":
-                    ToDisplay = AvaibleWindows.Mainmenu;
+                    ActualWindow = AvaibleWindows.Mainmenu;
                     break;
                 case "SETTINGS":
-                    ToDisplay = AvaibleWindows.Settings;
+                    ActualWindow = AvaibleWindows.Settings;
                     break;
                 case "DEFAULT":
-                    ToDisplay = AvaibleWindows.Default;
+                    ActualWindow = AvaibleWindows.Default;
                     break;
                 default:
-                    ToDisplay = AvaibleWindows.Default;
+                    ActualWindow = AvaibleWindows.Default;
                     break;
             }
             Display();
@@ -38,7 +38,7 @@ namespace RollThisDice
 
         protected override void Display()
         {
-            switch (ToDisplay)
+            switch (ActualWindow)
             {
                 case AvaibleWindows.Mainmenu:
                     Window.MainMenu();
@@ -50,12 +50,13 @@ namespace RollThisDice
                     Window.Default();
                     break;
                 default:
+                    Window.Default();
                     break;
             }
-            ChooseAction();
+            NextAction();
         }
 
-        private void ChooseAction()
+        private void NextAction()
         {
             var key = Console.ReadKey().KeyChar;
             Messenger.SendMessage(key.ToString());

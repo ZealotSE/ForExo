@@ -23,10 +23,10 @@ namespace RollThisDice
 
         public override void Run()
         {
-            if (Controller.IsTokenSet())
-                Controller.LaunchGame();
+            if (!Controller.IsTokenSet())
+                System.Console.WriteLine("Game not initialized!");            
             else
-                System.Console.WriteLine("Game not initialized!");
+                Controller.LaunchGame();
         }
 
         public override void Exit()

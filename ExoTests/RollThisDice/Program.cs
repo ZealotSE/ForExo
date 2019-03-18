@@ -9,8 +9,6 @@ namespace RollThisDice
             DiceGameClient NewGame = new DiceGameClient();
             NewGame.Init();
             NewGame.Run();
-
-            Console.ReadKey();
         }
     }
 }

@@ -42,26 +42,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract\ClientRecipe.cs" />
-    <Compile Include="DiceGame\ThresholdReachedEventArgs.cs" />
-    <Compile Include="DiceGame\Console\Windows.cs" />
-    <Compile Include="Abstract\ConsoleRecipe.cs" />
-    <Compile Include="Abstract\ControllerRecipe.cs" />
-    <Compile Include="DiceGame\Controller\GameLogic.cs" />
-    <Compile Include="Abstract\ModelRecipe.cs" />
-    <Compile Include="DiceGame\Console\ConsoleMessenger.cs" />
-    <Compile Include="DiceGame\Controller\ControllerMessenger.cs" />
-    <Compile Include="Abstract\IOneSidedContact.cs" />
-    <Compile Include="DiceGame\Model\ModelMessenger.cs" />
-    <Compile Include="Abstract\ITwoSidedContact.cs" />
-    <Compile Include="DiceGame\Console\GameConsole.cs" />
-    <Compile Include="DiceGame\Controller\Dice.cs" />
-    <Compile Include="DiceGame\Controller\GameController.cs" />
-    <Compile Include="DiceGame\Model\GameModel.cs" />
-    <Compile Include="DiceGame\Controller\Player.cs" />
+    <Compile Include="Abstractions\ClientRecipe.cs" />
+    <Compile Include="ThresholdReachedEventArgs.cs" />
+    <Compile Include="Console\Windows.cs" />
+    <Compile Include="Abstractions\ConsoleRecipe.cs" />
+    <Compile Include="Abstractions\ControllerRecipe.cs" />
+    <Compile Include="Controller\GameLogic.cs" />
+    <Compile Include="Abstractions\ModelRecipe.cs" />
+    <Compile Include="Console\ConsoleMessenger.cs" />
+    <Compile Include="Controller\ControllerMessenger.cs" />
+    <Compile Include="Abstractions\IOneSidedContact.cs" />
+    <Compile Include="Model\ModelMessenger.cs" />
+    <Compile Include="Abstractions\ITwoSidedContact.cs" />
+    <Compile Include="Console\GameConsole.cs" />
+    <Compile Include="Controller\Dice.cs" />
+    <Compile Include="Controller\GameController.cs" />
+    <Compile Include="Model\GameModel.cs" />
+    <Compile Include="Controller\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DiceGame\DiceGameClient.cs" />
+    <Compile Include="DiceGameClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
