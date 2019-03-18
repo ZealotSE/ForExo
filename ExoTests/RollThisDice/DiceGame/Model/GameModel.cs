@@ -2,11 +2,11 @@
 
 namespace RollThisDice
 {
-    class DiceModel : GameModel
+    class GameModel : ModelRecipe
     {
         public override IOneSidedContact Messenger { get; }
         
-        public DiceModel()
+        public GameModel()
         {
             Messenger = new ModelMessenger();
         }

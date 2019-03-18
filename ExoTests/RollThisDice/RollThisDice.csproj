@@ -42,22 +42,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\ClientRecipe.cs" />
     <Compile Include="DiceGame\ThresholdReachedEventArgs.cs" />
-    <Compile Include="DiceGame\Console\Views.cs" />
-    <Compile Include="Abstract\GameConsole.cs" />
-    <Compile Include="Abstract\GameClient.cs" />
-    <Compile Include="Abstract\GameController.cs" />
+    <Compile Include="DiceGame\Console\Windows.cs" />
+    <Compile Include="Abstract\ConsoleRecipe.cs" />
+    <Compile Include="Abstract\ControllerRecipe.cs" />
     <Compile Include="DiceGame\Controller\GameLogic.cs" />
-    <Compile Include="Abstract\GameModel.cs" />
+    <Compile Include="Abstract\ModelRecipe.cs" />
     <Compile Include="DiceGame\Console\ConsoleMessenger.cs" />
     <Compile Include="DiceGame\Controller\ControllerMessenger.cs" />
     <Compile Include="Abstract\IOneSidedContact.cs" />
     <Compile Include="DiceGame\Model\ModelMessenger.cs" />
     <Compile Include="Abstract\ITwoSidedContact.cs" />
-    <Compile Include="DiceGame\Console\DiceConsole.cs" />
+    <Compile Include="DiceGame\Console\GameConsole.cs" />
     <Compile Include="DiceGame\Controller\Dice.cs" />
-    <Compile Include="DiceGame\Controller\DiceController.cs" />
-    <Compile Include="DiceGame\Model\DiceModel.cs" />
+    <Compile Include="DiceGame\Controller\GameController.cs" />
+    <Compile Include="DiceGame\Model\GameModel.cs" />
     <Compile Include="DiceGame\Controller\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

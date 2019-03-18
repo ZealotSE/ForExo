@@ -5,16 +5,22 @@ namespace RollThisDice
 {
     internal class ConsoleMessenger : IOneSidedContact
     {
+        private GameConsole Console;        
         public event EventHandler MessageInvoker;
         
-        public void ReceiveMessage(object sender, EventArgs e)
+        public ConsoleMessenger(GameConsole Console)
         {
-            Console.WriteLine(this + " recieved message \"" + e.ToString() + " from " + sender.ToString());
+            this.Console = Console;
+        }
+
+        public void ReceiveMessage(object sender, EventArgs message)
+        {            
+            Console.MessageArrived(message.ToString());
         }
         
-        public void SendMessage(string a)
+        public void SendMessage(string message)
         {
-            MessageInvoker.Invoke(this, new ThresholdReachedEventArgs(a));
-        }        
+            MessageInvoker.Invoke(this, new ThresholdReachedEventArgs(message));
+        } 
     }
 }

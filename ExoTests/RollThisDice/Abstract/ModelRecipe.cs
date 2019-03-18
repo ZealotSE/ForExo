@@ -1,6 +1,6 @@
 ﻿namespace RollThisDice.Abstract
 {
-    abstract class GameModel
+    abstract class ModelRecipe
     {
         public abstract IOneSidedContact Messenger { get; }
     }

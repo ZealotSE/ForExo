@@ -2,27 +2,36 @@
 
 namespace RollThisDice
 {
-    class DiceGameClient : GameClient
+    class DiceGameClient : ClientRecipe
     {
-        protected override GameController Controller { get; }
-        protected override GameModel Model { get;}
-        protected override GameConsole Console { get; }
+        protected override ControllerRecipe Controller { get; }
+        protected override ModelRecipe Model { get; }
+        protected override ConsoleRecipe Console { get; }
 
         public DiceGameClient()
         {
-            Controller = new DiceController();
-            Model = new DiceModel();
-            Console = new DiceConsole();
+            Controller = new GameController();
+            Model = new GameModel();
+            Console = new GameConsole();
+        }
+
+        public override void Init()
+        {
             Bind(Model.Messenger, Controller.Messenger, Console.Messenger);
+            Controller.SetToken(this);
         }
 
         public override void Run()
         {
-            Controller.Messenger.SendMessageLeft("test1");
-            Controller.Messenger.SendMessageRight("test2");
-            Model.Messenger.SendMessage("test3");
-            Console.Messenger.SendMessage("test4");
-            System.Console.ReadKey();
+            if (Controller.IsTokenSet())
+                Controller.LaunchGame();
+            else
+                System.Console.WriteLine("Game not initialized!");
+        }
+
+        public override void Exit()
+        {
+            System.Environment.Exit(0);
         }
 
         protected override void Bind(IOneSidedContact ModelMessenger, ITwoSidedContact ControllerMessenger, IOneSidedContact ConsoleMessenger)
@@ -33,6 +42,7 @@ namespace RollThisDice
             ControllerMessenger.RightMessageInvoker += ConsoleMessenger.ReceiveMessage;
             ConsoleMessenger.MessageInvoker += ControllerMessenger.ReceiveMessageRight;
         }
+
     }
 }
 

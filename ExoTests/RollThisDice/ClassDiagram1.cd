@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="RollThisDice.Abstract.GameClient" Collapsed="true">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAgAAAAQAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAI=</HashCode>
+      <FileName>Abstract\GameClient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RollThisDice.Abstract.GameConsole" Collapsed="true">
+    <Position X="3.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Abstract\GameConsole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RollThisDice.Abstract.GameController" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Abstract\GameController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RollThisDice.Abstract.GameModel" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Abstract\GameModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RollThisDice.ConsoleMessenger" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAACAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>DiceGame\Console\ConsoleMessenger.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RollThisDice.DiceConsole" Collapsed="true">
+    <Position X="3.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DiceGame\Console\DiceConsole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RollThisDice.ControllerMessenger" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAQAEAAAAAAAABAAgAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DiceGame\Controller\ControllerMessenger.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RollThisDice.Dice" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAIAAAAAgAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DiceGame\Controller\Dice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RollThisDice.DiceController" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DiceGame\Controller\DiceController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RollThisDice.GameLogic" Collapsed="true">
+    <Position X="6" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DiceGame\Controller\GameLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RollThisDice.Player" Collapsed="true">
+    <Position X="9.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAgAAAAAAAQAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DiceGame\Controller\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RollThisDice.DiceGameClient" Collapsed="true">
+    <Position X="3.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAgAAAAQAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAI=</HashCode>
+      <FileName>DiceGame\DiceGameClient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RollThisDice.DiceModel" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DiceGame\Model\DiceModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RollThisDice.ModelMessenger" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAACAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>DiceGame\Model\ModelMessenger.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RollThisDice.Program" Collapsed="true">
+    <Position X="6" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RollThisDice.Modules.Console.Views" Collapsed="true">
+    <Position X="9.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DiceGame\Console\Views.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ThresholdReachedEventArgs" Collapsed="true">
+    <Position X="7.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>DiceGame\ThresholdReachedEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="RollThisDice.Abstract.IOneSidedContact" Collapsed="true">
+    <Position X="6" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAACAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Abstract\IOneSidedContact.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="RollThisDice.Abstract.ITwoSidedContact" Collapsed="true">
+    <Position X="7.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAQAEAAAAAAAABAAgAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Abstract\ITwoSidedContact.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
