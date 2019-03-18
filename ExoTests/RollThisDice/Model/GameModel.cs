@@ -2,13 +2,19 @@
 
 namespace RollThisDice
 {
-    class GameModel : ModelRecipe
+    internal class GameModel : ModelRecipe
     {
         public override IOneSidedContact Messenger { get; }
+        private Components Components;
+        private Settings Settings;
+        private State State;
         
         public GameModel()
         {
             Messenger = new ModelMessenger();
+            Components = new Components();
+            Settings = new Settings();
+            State = new State();
         }
     }
 }

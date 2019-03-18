@@ -13,14 +13,14 @@ namespace RollThisDice
             this.Console = Console;
         }
 
-        public void ReceiveMessage(object sender, EventArgs message)
+        public void ReceiveMessage(object sender, System.EventArgs e)
         {            
-            Console.MessageArrived(message.ToString());
+            Console.InterpretMessage(e as EventArgs);
         }
         
-        public void SendMessage(string message)
+        public void SendMessage(System.EventArgs e)
         {
-            MessageInvoker.Invoke(this, new ThresholdReachedEventArgs(message));
+            MessageInvoker.Invoke(this, e);
         } 
     }
 }

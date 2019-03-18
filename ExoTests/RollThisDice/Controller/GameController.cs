@@ -11,7 +11,31 @@ namespace RollThisDice
         public GameController()
         {
             Messenger = new ControllerMessenger(this);
-        }        
+        } 
+
+        public override void LaunchGame()
+        {
+            Messenger.SendMessageRight(new EventArgs("SHOW_MAINMENU"));
+        }
+
+        public void ReadMessage(EventArgs e)
+        {
+            switch (e.command)
+            {
+                case "SHOW_MAINMENU":
+                    Messenger.SendMessageRight(new EventArgs("SHOW_MAINMENU"));
+                    break;
+                case "START_NEW_GAME":
+                    Messenger.SendMessageRight(new EventArgs("START_ROUND"));
+                    break;
+                case "SHOW_SETTINGS":
+                    Messenger.SendMessageRight(new EventArgs("SHOW_SETTINGS"));
+                    break;
+                case "QUIT_GAME":
+                    Client.Exit();
+                    break;
+            }
+        }
 
         public override void SetToken(ClientRecipe Client)
         {
@@ -21,32 +45,7 @@ namespace RollThisDice
         public override bool IsTokenSet()
         {
             return Client == null ? false : true;
-            
-        }
 
-        public override void LaunchGame()
-        {
-            Messenger.SendMessageRight("MAINMENU");
-        }
-
-        public void MessageArrived(string arguments)
-        {
-
-            switch (arguments)
-            {
-                case "1":
-                    Messenger.SendMessageRight("MAINMENU");
-                    break;
-                case "2":
-                    Messenger.SendMessageRight("SETTINGS");
-                    break;
-                case "0":
-                    Client.Exit();
-                    break;
-                default:
-                    Messenger.SendMessageRight("DEFAULT");
-                    break;
-            }
         }
     }
 }

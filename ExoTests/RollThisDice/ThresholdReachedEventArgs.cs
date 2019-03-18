@@ -1,16 +1,16 @@
 ﻿using System;
 
-public class ThresholdReachedEventArgs : EventArgs
+public class EventArgs : System.EventArgs
 {
-    private string message;
+    public string command;
 
-    public ThresholdReachedEventArgs(string i)
+    public EventArgs(string command)
     {
-        message = i;
+        this.command = command;
     }  
 
     public override string ToString()
     {
-        return message;
+        return command;
     }
 }

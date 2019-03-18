@@ -6,7 +6,7 @@ namespace RollThisDice.Abstract
     {
         event EventHandler MessageInvoker;
         
-        void ReceiveMessage(object sender, EventArgs e);
-        void SendMessage(string a);
+        void ReceiveMessage(object sender, System.EventArgs e);
+        void SendMessage(System.EventArgs a);
     }
 }

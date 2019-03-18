@@ -14,7 +14,7 @@ namespace RollThisDice.Abstract
 
         public abstract void Init();
 
-        public abstract void Run();
+        public abstract void Launch();
 
         public abstract void Exit();
         

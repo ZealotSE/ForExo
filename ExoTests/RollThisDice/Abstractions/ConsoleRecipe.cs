@@ -4,6 +4,6 @@
     {        
         public abstract IOneSidedContact Messenger { get; }        
 
-        protected abstract void Display();
+       // protected abstract void Display();
     }
 }

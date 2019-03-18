@@ -2,64 +2,44 @@
 using RollThisDice.Abstract;
 
 namespace RollThisDice
-{    
-    class GameConsole : ConsoleRecipe
-    {
-        enum AvaibleWindows { Mainmenu, Settings, Gameplay, Default };
-        AvaibleWindows ActualWindow;         
+{
+    public enum AvaibleWindows { Mainmenu, Settings, Gameplay, History };
+    internal class GameConsole : ConsoleRecipe
+    {        
+        public AvaibleWindows ActualWindow;         
         public override IOneSidedContact Messenger { get; }
-        private Windows Window;
+        public Windows Window;
+        public UserAction User;
         
         public GameConsole()
         {
             Messenger = new ConsoleMessenger(this);
             Window = new Windows();
+            User = new UserAction();
         }
 
-        public void MessageArrived(string arguments)
+        public void InterpretMessage(EventArgs e)
         {
-            switch (arguments)
+            switch (e.command)
             {
-                case "MAINMENU":
+                case "SHOW_MAINMENU":
                     ActualWindow = AvaibleWindows.Mainmenu;
                     break;
-                case "SETTINGS":
+                case "SHOW_SETTINGS":
                     ActualWindow = AvaibleWindows.Settings;
                     break;
-                case "DEFAULT":
-                    ActualWindow = AvaibleWindows.Default;
+                case "START_ROUND":
+                case "END_ROUND":
+                case "PLAYER_MOVE":
+                case "NEXT_PLAYER_MOVE":
+                    ActualWindow = AvaibleWindows.Gameplay;
                     break;
-                default:
-                    ActualWindow = AvaibleWindows.Default;
-                    break;
-            }
-            Display();
-        }
-
-        protected override void Display()
-        {
-            switch (ActualWindow)
-            {
-                case AvaibleWindows.Mainmenu:
-                    Window.MainMenu();
-                    break;
-                case AvaibleWindows.Settings:
-                    Window.Settings();
-                    break;
-                case AvaibleWindows.Default:
-                    Window.Default();
-                    break;
-                default:
-                    Window.Default();
+                case "SHOW_HISTORY":
+                    ActualWindow = AvaibleWindows.History;
                     break;
             }
-            NextAction();
-        }
 
-        private void NextAction()
-        {
-            var key = Console.ReadKey().KeyChar;
-            Messenger.SendMessage(key.ToString());
+            Window.Display(e, this);
         }
     }
 }

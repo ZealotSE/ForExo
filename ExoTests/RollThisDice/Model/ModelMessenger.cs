@@ -7,14 +7,14 @@ namespace RollThisDice
     {
         public event EventHandler MessageInvoker;
 
-        public void ReceiveMessage(object sender, EventArgs e)
+        public void ReceiveMessage(object sender, System.EventArgs e)
         {
-            Console.WriteLine(this + " recieved message \"" + e.ToString()+" from "+sender.ToString());
+            //Console.WriteLine(this + " recieved message \"" + e.ToString()+" from "+sender.ToString());
         }
 
-        public void SendMessage(string a)
+        public void SendMessage(System.EventArgs a)
         {
-            MessageInvoker.Invoke(this, new ThresholdReachedEventArgs(a));
+            MessageInvoker.Invoke(this, a);
         }
     }
 }

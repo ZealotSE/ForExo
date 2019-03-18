@@ -43,6 +43,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstractions\ClientRecipe.cs" />
+    <Compile Include="Console\UserAction.cs" />
+    <Compile Include="Model\Components.cs" />
+    <Compile Include="Model\Settings.cs" />
+    <Compile Include="Model\State.cs" />
     <Compile Include="ThresholdReachedEventArgs.cs" />
     <Compile Include="Console\Windows.cs" />
     <Compile Include="Abstractions\ConsoleRecipe.cs" />

@@ -21,7 +21,7 @@ namespace RollThisDice
             Controller.SetToken(this);
         }
 
-        public override void Run()
+        public override void Launch()
         {
             if (!Controller.IsTokenSet())
                 System.Console.WriteLine("Game not initialized!");            

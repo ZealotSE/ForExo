@@ -14,24 +14,24 @@ namespace RollThisDice
             this.Controller = Controller;
         }
 
-        public void ReceiveMessageRight(object sender, EventArgs e)
+        public void ReceiveMessageRight(object sender, System.EventArgs e)
         {
-            Controller.MessageArrived(e.ToString());
+            Controller.ReadMessage(e as EventArgs);
         }
 
-        public void ReceiveMessageLeft(object sender, EventArgs e)
+        public void ReceiveMessageLeft(object sender, System.EventArgs e)
         {
-            Console.WriteLine(this + " recieved message \"" + e.ToString() + " from " + sender.ToString());
+            //Console.WriteLine(this + " recieved message \"" + e.ToString() + " from " + sender.ToString());
         }
 
-        public void SendMessageLeft(string message)
+        public void SendMessageLeft(System.EventArgs e)
         {
-            LeftMessageInvoker.Invoke(this, new ThresholdReachedEventArgs(message));
+            LeftMessageInvoker.Invoke(this, e);
         }
 
-        public void SendMessageRight(string message)
+        public void SendMessageRight(System.EventArgs e)
         {
-            RightMessageInvoker.Invoke(this, new ThresholdReachedEventArgs(message));
+            RightMessageInvoker.Invoke(this, e);
         }
     }
 
